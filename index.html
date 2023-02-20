@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="pages/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+</head>
+<body class="page">
+    <!--HEADER-->
+    <header class="header">
+        <img class="header__logo" src="images/logo.svg" alt="лого">
+    </header>
+    <main class="content">
+         <!--PROFILE-->
+        <section class="profile">
+            <img class="profile__avatar" src="images/kusto.jpg" alt="фотка профиля">
+            <div class="profile__info">
+                <h1 class="profile__title">Жак-Ив Кусто</h1>
+                <button type="button" class="profile__edit-button popup-link"></button>
+                <p class="profile__subtitle">Исследователь океана</p>
+            </div>
+            <button type="button" class="profile__add-button"></button>
+        </section>
+        <!--ELEMENTS-->
+        <section class="elements">
+            <div class="element">
+                <img class="element__img" src="images/karachaevsk.png" alt="Карачаевск">
+                <div class="element__info">
+                    <h2 class="element__title">Карачаевск</h2>
+                    <button class="element__like" type="button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__img" src="images/elbrus.png" alt="Эльбрус">
+                <div class="element__info">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__like" type="button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__img" src="images/dombai.png" alt="Домбай">
+                <div class="element__info">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__like" type="button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__img" src="images/elbrus.png" alt="Эльбрус">
+                <div class="element__info">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__like" type="button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__img" src="images/dombai.png" alt="Домбай">
+                <div class="element__info">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__like" type="button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__img" src="images/karachaevsk.png" alt="Карачаевск">
+                <div class="element__info">
+                    <h2 class="element__title">Карачаево-Ч...</h2>
+                    <button class="element__like" type="button"></button>
+                </div>
+            </div>
+        </section>
+        <!--FOOTER-->
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+        </footer>
+    </main>
+    <!--POPUP-->
+    <div class="popup">
+        <div class="popup__container">
+            <button class="popup__close-btn" type="button"></button>
+            <div class="popup__content">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="form" name="info-edit">
+                    <div class="form__info">
+                        <input class="form__text form__text_type_name" type="text" placeholder="Ваше тмя">
+                        <input class="form__text form__text_type_job" type="text" placeholder="Деятельность">
+                    </div>
+                    <button type="submit" class="form__submit-btn">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>
