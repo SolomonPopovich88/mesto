@@ -14,3 +14,4 @@
 - Возможность ставить лайки под фото
 
 ### Ссылка на проект
+https://solomonpopovich88.github.io/mesto/
