@@ -49,7 +49,6 @@ const popupZoomImage = document.querySelector('#popup-img');
 const popupZoomImageImg = popupZoomImage.querySelector('.popup__image');
 const popupZoomImageTitle = popupZoomImage.querySelector('.popup__image-title');
 
-
 function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
@@ -58,18 +57,47 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
-function openProfileEditor () {
+function openProfileEditor() {
   popupProfileName.value = profileName.textContent;
   popupProfileDesc.value = profileDesc.textContent;
   openPopup(popupProfile);
 }
 
-function saveProfileEditorChange (event) {
+function saveProfileEditorChange(event) {
   event.preventDefault();
   profileName.textContent = popupProfileName.value;
   profileDesc.textContent = popupProfileDesc.value;
   closePopup(popupProfile);
 }
+
+//закрытие попапа по клику на оверлей
+const popUps = document.querySelectorAll('.popup');
+popUps.forEach((popUp) => {
+  popUp.addEventListener('click', (evt) => {
+    if (evt.target === popUp) {
+      closePopup(popUp);
+    }
+  });
+});
+
+//закрытие попапа по клику на Esc
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
+  document.addEventListener("keydown", closePopupEsc);
+}
+
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closePopupEsc);
+}
+
+const closePopupEsc = (evt) => {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
+}
+
 
 // создание карт
 initialCards.forEach(initialCard => elements.append(createCard(initialCard.name, initialCard.link)));
@@ -87,12 +115,12 @@ function createCard(cardName, cardLink) {
   return cardElement
 }
 
-function openCardEditor () {
+function openCardEditor() {
   popupCardForm.reset();
   openPopup(popupCard);
 }
 
-function saveCardEditorChange (event) {
+function saveCardEditorChange(event) {
   event.preventDefault();
   const cardName = popupCardName.value;
   const cardLink = popupCardLink.value;
@@ -101,7 +129,7 @@ function saveCardEditorChange (event) {
 }
 
 // просмотр картинки
-function zoomCardImage (name, link) {
+function zoomCardImage(name, link) {
   popupZoomImageTitle.textContent = name;
   popupZoomImageImg.src = link;
   popupZoomImageImg.alt = name;
@@ -117,3 +145,5 @@ closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
+
+
