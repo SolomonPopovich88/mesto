@@ -49,10 +49,6 @@ const popupZoomImage = document.querySelector('#popup-img');
 const popupZoomImageImg = popupZoomImage.querySelector('.popup__image');
 const popupZoomImageTitle = popupZoomImage.querySelector('.popup__image-title');
 
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-}
-
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
@@ -100,19 +96,19 @@ const closePopupEsc = (evt) => {
 
 
 // создание карт
-initialCards.forEach(initialCard => elements.append(createCard(initialCard.name, initialCard.link)));
-function createCard(cardName, cardLink) {
-  const cardElement = elementTemplate.querySelector('.element').cloneNode(true);
-  cardElement.querySelector('.element__title').textContent = cardName;
-  cardElement.querySelector('.element__img').src = cardLink;
-  cardElement.querySelector('.element__img').alt = cardName;
-  cardElement.querySelector('.element__like').addEventListener('click',
-    function () { this.classList.toggle('element__like_active') });
-  cardElement.querySelector('.element__delete-btn').addEventListener('click',
-    () => cardElement.remove());
-  cardElement.querySelector('.element__img').addEventListener('click',
-    () => zoomCardImage(cardName, cardLink));
-  return cardElement
+initialCards.forEach(initialCard => elements.append(createCard(initialCard.name, initialCard.link))); 
+function createCard(cardName, cardLink) { 
+  const cardElement = elementTemplate.querySelector('.element').cloneNode(true); 
+  cardElement.querySelector('.element__title').textContent = cardName; 
+  cardElement.querySelector('.element__img').src = cardLink; 
+  cardElement.querySelector('.element__img').alt = cardName; 
+  cardElement.querySelector('.element__like').addEventListener('click', 
+    function () { this.classList.toggle('element__like_active') }); 
+  cardElement.querySelector('.element__delete-btn').addEventListener('click', 
+    () => cardElement.remove()); 
+  cardElement.querySelector('.element__img').addEventListener('click', 
+    () => zoomCardImage(cardName, cardLink)); 
+  return cardElement 
 }
 
 function openCardEditor() {

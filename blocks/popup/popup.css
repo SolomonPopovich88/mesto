@@ -14,7 +14,7 @@
   transition: opacity .3s ease-in-out;
 }
 
-.popup.popup_opened {
+.popup.popup_opened{
   visibility: visible;
   opacity: 1;
 }
