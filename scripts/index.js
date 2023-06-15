@@ -1,29 +1,8 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+import { initialCards } from "./initialCards.js"
+import { validationSettings } from './validate.js'
+import { Card } from './Cards.js'
+import { FormValidator } from './FormValidators.js'
+
 
 const elements = document.querySelector('.elements');
 const elementTemplate = document.querySelector('#element-template').content;
@@ -82,11 +61,6 @@ function openPopup(popup) {
   document.addEventListener("keydown", closePopupEsc);
 }
 
-function closePopup(popup) {
-  popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closePopupEsc);
-}
-
 const closePopupEsc = (evt) => {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".popup_opened");
@@ -125,7 +99,7 @@ function saveCardEditorChange(event) {
 }
 
 // просмотр картинки
-function zoomCardImage(name, link) {
+export function zoomCardImage(name, link) {
   popupZoomImageTitle.textContent = name;
   popupZoomImageImg.src = link;
   popupZoomImageImg.alt = name;
